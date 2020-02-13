@@ -1,0 +1,29 @@
+@model Hobby
+
+<a asp-action="Dashboard" asp-controller="Hobby" class="btn btn-warning">Dashboard</a>
+<a asp-action="Logout" asp-controller="Home" class="btn btn-danger">Logout</a>
+
+<h1>@Model.Title</h1><br>
+<p>@Model.Description</p><br>
+
+
+<div>
+    <h6>@Model.Title Enthusiasts:</h6>
+
+    @if(@Model.GuestList.Count == 0)
+    {
+        <p>No Enthusiasts yet!</p>
+    }
+    
+    @foreach( var r in @Model.GuestList)
+    {
+        <p>@r.Guest.FirstName</p>
+    }
+   
+</div>
+
+<div>
+    <h6>Become and Enthusiast!</h6>
+    <a asp-action="RSVP" asp-controller="Hobby" asp-route-hobbyId="@Model.HobbyId" asp-route-userId="@ViewBag.User.UserId" asp-route-status="add" class="btn btn-warning">Add Hobby</a>
+</div>
+

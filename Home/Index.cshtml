@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model User
+
+<div class="index_header">
+    <h1>Welcome to Hobby Helper!</h1>
+    <p>A hub for finding new hobbies and finding friends to join your journies</p>
+</div>
+<h3>Register</h3>
+<a asp-action="SignIn" asp-controller="Home" class="btn btn-primary">SignIn</a>
+<div asp-validation-summary="All"  class="text-danger"></div>
+<form asp-action="Register" asp-controller="Home" method="post">
+    <label asp-for="FirstName"></label>
+    <input asp-for="FirstName"><br>
+    <label asp-for="LastName"></label>
+    <input asp-for="LastName"><br>
+    <label asp-for="Username"></label>
+    <input asp-for="Username"><br>
+    <label asp-for="Password"></label>
+    <input asp-for="Password"><br>
+    <label asp-for="ComparePassword"></label>
+    <input asp-for="ComparePassword"><br>
+    <input type="submit" value="REGISTER" class="btn  btn-danger">
+</form>
